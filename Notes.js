@@ -20,10 +20,10 @@ async function loadNotes() {
 
 
 emitter.on("add",async ()=>{
-    const note = await loadNotes();
+    const notes = await loadNotes();
     const task = { title : taskTitle};
 
-    note.push(task);
+    notes.push(task);
 
     try{
         await fs.writeFile("./notesList.json",JSON.stringify(note,null,2));
@@ -35,9 +35,9 @@ emitter.on("add",async ()=>{
     
 })
 emitter.on("delete",async()=>{
-    const note = await loadNotes();
+    const notes = await loadNotes();
 
-    const updatedTask = note.filter((task)=>task.title !== taskTitle)
+    const updatedTask = notes.filter((task)=>task.title !== taskTitle)
 
    try{
     await fs.writeFile("./notesList.json",JSON.stringify(updatedTask,null,2));
@@ -49,8 +49,8 @@ emitter.on("delete",async()=>{
 })
 
 emitter.on("show",async()=>{
-    const note = await loadNotes();
-    note.forEach(task => {
+    const notes = await loadNotes();
+    notes.forEach(task => {
         console.log(task.title);
     });
 })
