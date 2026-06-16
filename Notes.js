@@ -43,8 +43,8 @@ emitter.on("delete",async()=>{
     await fs.writeFile("./notesList.json",JSON.stringify(updatedTask,null,2));
     console.log("successfully delted");
    }
-   catch{
-    console.log("error occured while deleting the task");
+   catch(error){
+    console.log(error.message);
    }
 })
 
