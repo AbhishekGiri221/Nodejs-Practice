@@ -1,5 +1,6 @@
 const fs = require('fs/promises');
 const EventEmitter = require("events");
+const { emit } = require('process');
 
 const emitter = new EventEmitter();
 
@@ -63,6 +64,44 @@ emitter.on("delete",async ()=>{
 
 })
 
+
+emitter.on("search",async()=>{
+    const getPreviousData = await getExpense();
+    const category = process.argv[3]
+    const fitlteredExpenses = getPreviousData.filter((data) => data.category === category)
+
+    fitlteredExpenses.forEach((data)=>{
+        console.log(`${data.name} - ${data.amount}`);
+    })
+})
+
+
+emitter.on("total",async()=>{
+    const getPreviousData = await getExpense();
+
+    const total = getPreviousData.reduce((sum, data)=>{
+        return sum + Number(data.amount);
+    },0);
+
+    console.log(`total spent : ${total}`);
+});
+
+emitter.on("update",async ()=>{
+    const getPreviousData = await getExpense();
+    const id  = process.argv[3];
+    const name = process.argv[4];
+    const amount = process.argv[5];
+    const category = process.argv[6];
+
+    const data = getPreviousData.find(d => d.id == Number(id));
+
+
+    data.name = name;
+    data.amount = amount;
+    data.category = category;
+
+    await fs.writeFile("./expenses.json",JSON.stringify(getPreviousData,null,2));
+});
 
 emitter.emit(command)
 

@@ -12,5 +12,40 @@
     "amount": "300",
     "category": "food",
     "date": "2026-06-17"
+  },
+  {
+    "id": 3,
+    "name": "pizza",
+    "amount": "300",
+    "category": "food",
+    "date": "2026-06-17"
+  },
+  {
+    "id": 4,
+    "name": "sandwitch",
+    "amount": "300",
+    "category": "food",
+    "date": "2026-06-17"
+  },
+  {
+    "id": 5,
+    "name": "pencil",
+    "amount": "300",
+    "category": "stationary",
+    "date": "2026-06-17"
+  },
+  {
+    "id": 6,
+    "name": "pen",
+    "amount": "300",
+    "category": "stationary",
+    "date": "2026-06-17"
+  },
+  {
+    "id": 7,
+    "name": "shirt",
+    "amount": "300",
+    "category": "clothes",
+    "date": "2026-06-17"
   }
 ]
