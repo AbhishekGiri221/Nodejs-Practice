@@ -49,6 +49,21 @@ emitter.on("list",async()=>{
         console.log(`amount : ${data.amount} \n`);
     });
 });
+
+emitter.on("delete",async ()=>{
+    // note : process.argv always gives string 
+    const id = Number(process.argv[3]);
+
+    const getPreviousData = await getExpense();
+
+    const newData = getPreviousData.filter((data)=> data.id !== id);
+
+    await fs.writeFile("./expenses.json",JSON.stringify(newData,null,2));
+    console.log("Expenses deleted successfully");
+
+})
+
+
 emitter.emit(command)
 
 

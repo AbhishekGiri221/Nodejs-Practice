@@ -1,14 +1,14 @@
 [
   {
-    "id": 1,
-    "name": "piza",
+    "id": 2,
+    "name": "shawrma",
     "amount": "300",
     "category": "food",
     "date": "2026-06-17"
   },
   {
-    "id": 2,
-    "name": "sandwitch",
+    "id": 3,
+    "name": "trip",
     "amount": "300",
     "category": "food",
     "date": "2026-06-17"
