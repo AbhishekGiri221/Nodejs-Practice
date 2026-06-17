@@ -38,7 +38,17 @@ emitter.on("add",async()=>{
 
     console.log("expense added successfully");
     
-})
+});
+
+emitter.on("list",async()=>{
+    const getPreviousData = await getExpense();
+
+    getPreviousData.forEach((data)=>{
+        console.log(`name : ${data.name}`);
+        console.log(`date : ${data.date}`);
+        console.log(`amount : ${data.amount} \n`);
+    });
+});
 emitter.emit(command)
 
 
